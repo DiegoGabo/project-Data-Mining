@@ -1,0 +1,11 @@
+pulire dati
+
+aggiungere features basate sulle date (mean_sales_last_month, last_year)
+
+modello a giorno su dati predetti (quali temperatura....)
+modello per un mese fa e per due mesi fa, sono modelli diversi
+
+metodi:
+DNN
+Random Forest
+Regression?
