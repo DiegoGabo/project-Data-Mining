@@ -107,11 +107,3 @@ venv.bak/
 
 # mypy
 .mypy_cache/
-
-# Processed train dataset
-
-dataset/train_processed.csv
-dataset/train_small.csv
-dataset/train_val1.csv
-dataset/train_val2.csv
-dataset/*
