@@ -1,4 +1,4 @@
-### Sales Forecasting
+# Sales Forecasting
 
 ## Introduction
 The purpose of this project is to create a sales forecasting model for one of Europe’s most important
@@ -28,7 +28,7 @@ provide some information.
 We also drop every row where IsOpen = 0, because in that case we automatically set the num-
 ber of sales to 0, independently from the other features.
 
-# Categorical features
+### Categorical features
 We convert StoreType to a numerical variable by assigning a fixed map of values between 0 and 3.
 We believe this makes sense because there is an order between the 4 levels of the original categorical
 variable: e.g. ’Hyper Market’ is bigger than ’Super Market’. So, in a sense, this feature would be
@@ -45,7 +45,7 @@ than when Events is not NaN.
 We convert this feature in 5 boolean features that are active when the corresponding atmo-
 spherical event happened.
 
-# Missing values
+### Missing values
 We decided to impute the missing values from the other features with Random Forest with default
 parameters.
 
@@ -81,14 +81,14 @@ in a significant way, so the three final dataset are as follows:
 
 ## Models training and validation
 
-# Analyzed models
+### Analyzed models
 We decided to analyze four different models:
 • RANDOM FOREST
 • EXTREMELY RANDOMIZED TREES
 • XGBOOST
 • MULTIPLE LINEAR REGRESSION
 
-# Generated models
+###Generated models
 To optimize the trees we have firts performed a feature selection based on the feature importance.
 This was calculated with the tool SelectFromModel from the library sklearn.feature_selection.
 After the feature selection we tuned the hyperparameters calculating the error on a validation
