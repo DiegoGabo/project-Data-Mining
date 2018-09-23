@@ -88,35 +88,35 @@ We decided to analyze four different models:
 * XGBOOST
 * MULTIPLE LINEAR REGRESSION
 
-###Generated models
+### Generated models
 To optimize the trees we have firts performed a feature selection based on the feature importance.
 This was calculated with the tool SelectFromModel from the library sklearn.feature_selection.
 After the feature selection we tuned the hyperparameters calculating the error on a validation
 set. We saw that for random forest and extremely randomize trees, the featurest selection led to
 a significant improvement, but it doesent happened in XGBOOST, so for this model there is no
 previus feature selection.
-RANDOM FOREST
-* number_of_attributes: 13
-* number_of_freatures: 4
-* depht: 15
-* number_of_estimators: 250
-EXTREMELY RANDOMIZED TREES
-* number_of_attributes: 12
-* number_of_features: 3
-* depht: 22
-* number_of_estimators: 250
-3XGBOOST
-* subsample: 0.6
-* η: 0.3
-* colsample_bytree: 0.6
-* min_child_weight: 5
-* max_depht: 15
-* number_of_estimator: 250
-MULTIPLE LINEAR REGRESSION
-* loss_function: intensive
-* learning_rate: optimal
-* α: 1.10 6
-* b: 0.0325
+* RANDOM FOREST
+  * number_of_attributes: 13
+  * number_of_freatures: 4
+  * depht: 15
+  * number_of_estimators: 250
+* EXTREMELY RANDOMIZED TREES
+  * number_of_attributes: 12
+  * number_of_features: 3
+  * depht: 22
+  * number_of_estimators: 250
+* 3XGBOOST
+  * subsample: 0.6
+  * η: 0.3
+  * colsample_bytree: 0.6
+  * min_child_weight: 5
+  * max_depht: 15
+  * number_of_estimator: 250
+* MULTIPLE LINEAR REGRESSION
+  * loss_function: intensive
+  * learning_rate: optimal
+  * α: 1.10 6
+  * b: 0.0325
 
 ## Results
 According to the given error formula the errors on val2 for each model are:
