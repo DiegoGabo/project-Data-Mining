@@ -1,6 +1,6 @@
-###Sales Forecasting
+### Sales Forecasting
 
-##Introduction
+## Introduction
 The purpose of this project is to create a sales forecasting model for one of Europe’s most important
 retailers. In the following paper we explain our workflow which consisted of the following steps:
 • Data exploration
@@ -10,7 +10,7 @@ retailers. In the following paper we explain our workflow which consisted of the
 • Models training and validation
 • Model selection and evaluation
 
-##Data exploration
+## Data exploration
 The provided dataset consists of 523021 instances of daily information about the stores, between
 March 1st, 2016 and February 28, 2018. There are 36 features about number of sales, number of
 visitors, store information, weather information and demographic information.
@@ -20,7 +20,7 @@ missing values, Events with 24%, CloudCover with 8%, and the three visibility fe
 There are also some numerical features which are actually categorical, such as the Region ID
 which is represented by a number between 0 and 10, or the Store ID.
 
-##Data cleaning
+## Data cleaning
 We drop the Region ID. It makes no sense as a numerical variable because we don’t want it to
 act as an ordering between the different regions, and there are already 3 features which describe
 a region (area in km 2 , GDP, population), so these features already act as an identifier and also
@@ -28,7 +28,7 @@ provide some information.
 We also drop every row where IsOpen = 0, because in that case we automatically set the num-
 ber of sales to 0, independently from the other features.
 
-#Categorical features
+# Categorical features
 We convert StoreType to a numerical variable by assigning a fixed map of values between 0 and 3.
 We believe this makes sense because there is an order between the 4 levels of the original categorical
 variable: e.g. ’Hyper Market’ is bigger than ’Super Market’. So, in a sense, this feature would be
@@ -45,11 +45,11 @@ than when Events is not NaN.
 We convert this feature in 5 boolean features that are active when the corresponding atmo-
 spherical event happened.
 
-#Missing values
+# Missing values
 We decided to impute the missing values from the other features with Random Forest with default
 parameters.
 
-##Feature engineering
+## Feature engineering
 The features we added are:
 • IsSaturday and IsSunday, signaling if the day is a Saturday or a Sunday;
 • WasOpenYesterday and IsOpenTomorrow, signaling if the store was open yesterday or is
@@ -64,7 +64,7 @@ that month;
 region;
 • OrdinalDate, number between 0 and 364 which indicates the day of the year.
 
-##Dataset split
+## Dataset split
 After cleaning the dataset,we have divided it into three subsets:
 • val1, used to calculate the model’s hyperparameters and make a first features selection;
 • val2, used to select the best model;
@@ -79,16 +79,16 @@ in a significant way, so the three final dataset are as follows:
 • val2: from 01/01/2018 to 28/02/2018
 • training set: from 01/03/2017 to 31/10/2017
 
-##Models training and validation
+## Models training and validation
 
-#Analyzed models
+# Analyzed models
 We decided to analyze four different models:
 • RANDOM FOREST
 • EXTREMELY RANDOMIZED TREES
 • XGBOOST
 • MULTIPLE LINEAR REGRESSION
 
-#Generated models
+# Generated models
 To optimize the trees we have firts performed a feature selection based on the feature importance.
 This was calculated with the tool SelectFromModel from the library sklearn.feature_selection.
 After the feature selection we tuned the hyperparameters calculating the error on a validation
@@ -118,7 +118,7 @@ MULTIPLE LINEAR REGRESSION
 • α: 1.10 6
 • b: 0.0325
 
-##Results
+## Results
 According to the given error formula the errors on val2 for each model are:
 • RANDOM FOREST: 0.046836707570122794
 • EXTREMELYRANDOMIZE TREES:0.04787037272346659
