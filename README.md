@@ -3,12 +3,12 @@
 ## Introduction
 The purpose of this project is to create a sales forecasting model for one of Europe’s most important
 retailers. In the following paper we explain our workflow which consisted of the following steps:
-• Data exploration
-• Data cleaning
-• Feature engineering
-• Dataset split
-• Models training and validation
-• Model selection and evaluation
+* Data exploration
+* Data cleaning
+* Feature engineering
+* Dataset split
+* Models training and validation
+* Model selection and evaluation
 
 ## Data exploration
 The provided dataset consists of 523021 instances of daily information about the stores, between
@@ -51,42 +51,42 @@ parameters.
 
 ## Feature engineering
 The features we added are:
-• IsSaturday and IsSunday, signaling if the day is a Saturday or a Sunday;
-• WasOpenYesterday and IsOpenTomorrow, signaling if the store was open yesterday or is
+* IsSaturday and IsSunday, signaling if the day is a Saturday or a Sunday;
+* WasOpenYesterday and IsOpenTomorrow, signaling if the store was open yesterday or is
 open tomorrow;
-• MeanMonthSales, which is the mean number of sales of all the stores for that month;
-• StdMonthSales, which is the standard deviation of the number of sales of all the sotres fot
+* MeanMonthSales, which is the mean number of sales of all the stores for that month;
+* StdMonthSales, which is the standard deviation of the number of sales of all the sotres fot
 that month;
-• MeanStoreSales, which is the mean number of sales for that store;
-• StdStoreSales, which is the standard deviation of the number of sales for that store;
-• MeanRegionSales, which is the mean of numer of sales of all the stores of that region;
-• StdRegionSales, which is the standard deviation of number of sales of all the stores of that
+* MeanStoreSales, which is the mean number of sales for that store;
+* StdStoreSales, which is the standard deviation of the number of sales for that store;
+* MeanRegionSales, which is the mean of numer of sales of all the stores of that region;
+* StdRegionSales, which is the standard deviation of number of sales of all the stores of that
 region;
-• OrdinalDate, number between 0 and 364 which indicates the day of the year.
+* OrdinalDate, number between 0 and 364 which indicates the day of the year.
 
 ## Dataset split
 After cleaning the dataset,we have divided it into three subsets:
-• val1, used to calculate the model’s hyperparameters and make a first features selection;
-• val2, used to select the best model;
-• training set, used to train the calculated models.
+* val1, used to calculate the model’s hyperparameters and make a first features selection;
+* val2, used to select the best model;
+* training set, used to train the calculated models.
 2We firts have created val2 using all the datas related to the last 2 months (Gianuary and
 February 2018) to have a validation set as similar as possible to the future test set, val1 extracting
 10% of the data randomly and we have left the rest of the datas for the training set.
 Then we decided to anlyze all our models using a val1 made of two consecutive months to have
 a similar situation in va1, val2 and the future test and we noticed that the performace improved
 in a significant way, so the three final dataset are as follows:
-• val1: from 01/11/2017 to 31/12/2017
-• val2: from 01/01/2018 to 28/02/2018
-• training set: from 01/03/2017 to 31/10/2017
+* val1: from 01/11/2017 to 31/12/2017
+* val2: from 01/01/2018 to 28/02/2018
+* training set: from 01/03/2017 to 31/10/2017
 
 ## Models training and validation
 
 ### Analyzed models
 We decided to analyze four different models:
-• RANDOM FOREST
-• EXTREMELY RANDOMIZED TREES
-• XGBOOST
-• MULTIPLE LINEAR REGRESSION
+* RANDOM FOREST
+* EXTREMELY RANDOMIZED TREES
+* XGBOOST
+* MULTIPLE LINEAR REGRESSION
 
 ###Generated models
 To optimize the trees we have firts performed a feature selection based on the feature importance.
@@ -96,32 +96,32 @@ set. We saw that for random forest and extremely randomize trees, the featurest 
 a significant improvement, but it doesent happened in XGBOOST, so for this model there is no
 previus feature selection.
 RANDOM FOREST
-• number_of_attributes: 13
-• number_of_freatures: 4
-• depht: 15
-• number_of_estimators: 250
+* number_of_attributes: 13
+* number_of_freatures: 4
+* depht: 15
+* number_of_estimators: 250
 EXTREMELY RANDOMIZED TREES
-• number_of_attributes: 12
-• number_of_features: 3
-• depht: 22
-• number_of_estimators: 250
+* number_of_attributes: 12
+* number_of_features: 3
+* depht: 22
+* number_of_estimators: 250
 3XGBOOST
-• subsample: 0.6
-• η: 0.3
-• colsample_bytree: 0.6
-• min_child_weight: 5
-• max_depht: 15
-• number_of_estimator: 250
+* subsample: 0.6
+* η: 0.3
+* colsample_bytree: 0.6
+* min_child_weight: 5
+* max_depht: 15
+* number_of_estimator: 250
 MULTIPLE LINEAR REGRESSION
-• loss_function: intensive
-• learning_rate: optimal
-• α: 1.10 6
-• b: 0.0325
+* loss_function: intensive
+* learning_rate: optimal
+* α: 1.10 6
+* b: 0.0325
 
 ## Results
 According to the given error formula the errors on val2 for each model are:
-• RANDOM FOREST: 0.046836707570122794
-• EXTREMELYRANDOMIZE TREES:0.04787037272346659
-• XGBOOST: 0.06101349388459094
-• MULTIPLE LINEAR REGRESSION: 0.146891
+* RANDOM FOREST: 0.046836707570122794
+* EXTREMELYRANDOMIZE TREES:0.04787037272346659
+* XGBOOST: 0.06101349388459094
+* MULTIPLE LINEAR REGRESSION: 0.146891
 So we decide to use the Random Forest model to predict the test data.
